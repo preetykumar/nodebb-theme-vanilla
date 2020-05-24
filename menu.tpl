@@ -5,8 +5,8 @@
 					<span class="icon-bar"></span>
 				</button>
 				<div>
-					<a href="<!-- IF brand:logo:url -->{brand:logo:url}<!-- ELSE -->{relative_path}/<!-- ENDIF brand:logo:url -->" hidden="true">
-						<img alt="{brand:logo:alt}" class="{brand:logo:display} forum-logo"  src="{brand:logo}" />
+					<a href="<!-- IF brand:logo:url -->{brand:logo:url}<!-- ELSE -->{relative_path}/<!-- ENDIF brand:logo:url -->" aria-label="logo">
+						<img alt="{brand:logo:alt}" class="{brand:logo:display} forum-logo" src="{brand:logo}" />
 					</a>
 					<!-- IF config.showSiteTitle -->
 					<a href="<!-- IF title:url -->{title:url}<!-- ELSE -->{relative_path}/<!-- ENDIF title:url -->">
@@ -26,7 +26,7 @@
 					{{{each navigation}}}
 					<!-- IF function.displayMenuItem, @index -->
 					<li class="{navigation.class}">
-						<a class="navigation-link" href="{navigation.route}" aria-label="{navigation.title}" title="{navigation.title}" id="{navigation.id}"<!-- IF navigation.properties.targetBlank --> target="_blank"<!-- ENDIF navigation.properties.targetBlank -->>
+						<a class="navigation-link" href="{navigation.route}" title="{navigation.title}" id="{navigation.id}"<!-- IF navigation.properties.targetBlank --> target="_blank"<!-- ENDIF navigation.properties.targetBlank -->>
 							<!-- IF navigation.iconClass -->
 							<i class="fa fa-fw {navigation.iconClass}" data-content="{navigation.content}"></i>
 							<!-- ENDIF navigation.iconClass -->
@@ -43,32 +43,32 @@
 				<!-- IF config.loggedIn -->
 				<ul id="logged-in-menu" class="nav navbar-nav navbar-right pull-right">
 					<li class="notifications dropdown text-center hidden-xs" component="notifications">
-						<a href="#" title="[[global:header.notifications]]" class="dropdown-toggle" data-toggle="dropdown" aria-label="Drop down toggle" id="notif_dropdown">
+						<a href="#" title="[[global:header.notifications]]" class="dropdown-toggle" data-toggle="dropdown" id="notif_dropdown" aria-label="notification dropdown">
 							<i component="notifications/icon" class="notification-icon fa fa-fw fa-bell-o" data-content="0"></i>
 						</a>
 						<ul class="dropdown-menu" aria-labelledby="notif_dropdown">
 							<li>
 								<ul id="notif-list" component="notifications/list">
 									<li class="loading-text">
-										<a href="#" aria-label="Notifications loading"><i class="fa fa-refresh fa-spin"></i> [[global:notifications.loading]]</a>
+										<a href="#" aria-label="notifications loading"><i class="fa fa-refresh fa-spin"></i> [[global:notifications.loading]]</a>
 									</li>
 								</ul>
 							</li>
-							<li class="notif-dropdown-link"><a href="#" class="mark-all-read">[[notifications:mark_all_read]]</a></li>
-							<li class="notif-dropdown-link"><a href="{relative_path}/notifications">[[notifications:see_all]]</a></li>
+							<li class="notif-dropdown-link"><a href="#" class="mark-all-read" aria-label="mark all read">[[notifications:mark_all_read]] </a></li>
+							<li class="notif-dropdown-link"><a href="{relative_path}/notifications" aria-label="see all">[[notifications:see_all]]</a></li>
 						</ul>
 					</li>
 
 					<!-- IF config.searchEnabled -->
 					<li class="visible-xs">
-						<a href="{relative_path}/search">
+						<a href="{relative_path}/search" aria-label="Search">
 							<i class="fa fa-search fa-fw"></i> [[global:search]]
 						</a>
 					</li>
 					<!-- ENDIF config.searchEnabled -->
 
 					<li class="visible-xs">
-						<a href="{relative_path}/notifications" aria-label="[[notifications:title]]" title="[[notifications:title]]">
+						<a href="{relative_path}/notifications" title="[[notifications:title]] aria-label="Notifications">
 							<i component="notifications/icon" class="notification-icon fa fa-bell-o fa-fw" data-content="0"></i> [[notifications:title]]
 						</a>
 					</li>
@@ -76,49 +76,49 @@
 
 					<!-- IF !config.disableChat -->
 					<li class="chats dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#" title="[[global:header.chats]]" id="chat_dropdown" component="chat/dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" title="[[global:header.chats]]" id="chat_dropdown" component="chat/dropdown" aria-label="chat dropdown">
 							<i component="chat/icon" class="fa fa-comment-o fa-fw"></i> <span class="visible-xs-inline">[[global:header.chats]]</span>
 						</a>
 						<ul class="dropdown-menu" aria-labelledby="chat_dropdown">
 							<li>
 								<ul id="chat-list" component="chat/list">
 									<li class="loading-text">
-										<a href="#"><i class="fa fa-refresh fa-spin"></i> [[global:chats.loading]]</a>
+										<a href="#"><i class="fa fa-refresh fa-spin" aria-label="chat loading"></i> [[global:chats.loading]]</a>
 									</li>
 								</ul>
 							</li>
-							<li class="notif-dropdown-link"><a href="#" class="mark-all-read" component="chats/mark-all-read">[[modules:chat.mark_all_read]]</a></li>
-							<li class="notif-dropdown-link"><a href="{relative_path}/user/{user.userslug}/chats">[[modules:chat.see_all]]</a></li>
+							<li class="notif-dropdown-link"><a href="#" class="mark-all-read" aria-label="mark all chats as read" component="chats/mark-all-read">[[modules:chat.mark_all_read]]</a></li>
+							<li class="notif-dropdown-link"><a href="{relative_path}/user/{user.userslug}/chats" aria-label="see all chats">[[modules:chat.see_all]]</a></li>
 						</ul>
 					</li>
 					<!-- ENDIF !config.disableChat -->
 
 					<li id="user_label" class="dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="user_dropdown" title="[[global:header.profile]]">{buildAvatar(user, "sm", true)}</a>
-						<ul component="header/usercontrol" id="user-control-list" class="dropdown-menu" aria-labelledby="user_dropdown">
+						<ul component="header/usercontrol" id="user-control-list" class="dropdown-menu" aria-labelledby="user dropdown">
 							<li>
-								<a component="header/profilelink" href="{relative_path}/user/{user.userslug}">
+								<a component="header/profilelink" href="{relative_path}/user/{user.userslug}" aria-label="{user.username]">
 									<i class="fa fa-fw fa-circle status {user.status}"></i> <span component="header/username">{user.username}</span>
 								</a>
 							</li>
 							<li role="presentation" class="divider"></li>
 							<li>
-								<a href="#" class="user-status" data-status="online">
+								<a href="#" class="user-status" data-status="online" aria-label="online">
 									<i class="fa fa-fw fa-circle status online"></i><span> [[global:online]]</span>
 								</a>
 							</li>
 							<li>
-								<a href="#" class="user-status" data-status="away">
+								<a href="#" class="user-status" data-status="away" aria-label="away">
 									<i class="fa fa-fw fa-circle status away"></i><span> [[global:away]]</span>
 								</a>
 							</li>
 							<li>
-								<a href="#" class="user-status" data-status="dnd">
+								<a href="#" class="user-status" data-status="dnd" aria-label="dnd">
 									<i class="fa fa-fw fa-circle status dnd"></i><span> [[global:dnd]]</span>
 								</a>
 							</li>
 							<li>
-								<a href="#" class="user-status" data-status="offline">
+								<a href="#" class="user-status" data-status="offline" aria-label="offline">
 									<i class="fa fa-fw fa-circle status offline"></i><span> [[global:invisible]]</span>
 								</a>
 							</li>
@@ -154,14 +154,14 @@
 				<ul id="logged-out-menu" class="nav navbar-nav navbar-right pull-right">
 					<!-- IF allowRegistration -->
 					<li>
-						<a href="{relative_path}/register">
+						<a href="{relative_path}/register" aria-label="register">
 							<i class="fa fa-pencil visible-xs-inline"></i>
 							<span>[[global:register]]</span>
 						</a>
 					</li>
 					<!-- ENDIF allowRegistration -->
 					<li>
-						<a href="{relative_path}/login">
+						<a href="{relative_path}/login" aria-label="login">
 							<i class="fa fa-sign-in visible-xs-inline"></i>
 							<span>[[global:login]]</span>
 						</a>
