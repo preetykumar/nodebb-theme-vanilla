@@ -3,7 +3,7 @@
 		<span component="category-selector-selected">[[topic:thread_tools.select_category]]</span> <span class="caret"></span>
 	</button>
 	<div component="category-selector-search" class="hidden">
-		<input type="text" class="form-control" autocomplete="off">
+		<input aria-label="Category selector search" type="text" class="form-control" autocomplete="off">
 	</div>
 	<ul component="category/list" class="dropdown-menu category-dropdown-menu" role="menu">
 		<li component="category/no-matches" role="presentation" class="category hidden">

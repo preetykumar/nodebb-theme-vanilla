@@ -1,6 +1,6 @@
 		<div class="{children.class}" data-cid="{children.cid}" data-numRecentReplies="{children.numRecentReplies}">
 			<meta itemprop="name" content="{children.name}">
-			<h4 class="category-title">
+			<h2 class="category-title">
 				<!-- IF !children.link -->
 				<span class="badge {children.unread-class}">{children.totalTopicCount} </span>
 				<!-- ENDIF !children.link -->
@@ -12,7 +12,7 @@
 				<!-- ENDIF children.link -->
 				{children.name}
 				</a>
-			</h4>
+			</h2>
 
 			<!-- IF children.link -->
 			<a style="color: {children.color};" href="{children.link}" itemprop="url">
@@ -36,7 +36,7 @@
 						{{{each posts}}}
 						<div class="category-box">
 							<div class="post-preview">
-								<img src="{children.posts.user.picture}" class="pull-left" />
+								<img alt="user picture" src="{children.posts.user.picture}" class="pull-left" />
 								<p class=""><strong>{children.posts.user.username}</strong>: {children.posts.content}</p>
 							</div>
 						</div>
