@@ -15,7 +15,7 @@
 		<div class="col-lg-3 col-xs-9">
 			<div class="search">
 				<div class="input-group">
-					<input class="form-control" id="search-user" type="text" placeholder="[[users:enter_username]]"/>
+					<input class="form-control" aria-label="Enter a username to search" id="search-user" type="text" placeholder="[[users:enter_username]]" />
 					<span class="input-group-addon">
 						<i component="user/search/icon" class="fa fa-search"></i>
 					</span>

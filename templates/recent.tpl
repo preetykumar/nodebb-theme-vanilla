@@ -29,7 +29,7 @@
 
 	<br/><br/>
 
-	<a href="{config.relative_path}/{selectedFilter.url}">
+	<a aria-label="new topic alert" href="{config.relative_path}/{selectedFilter.url}">
 		<div class="alert alert-warning hide" id="new-topics-alert"></div>
 	</a>
 

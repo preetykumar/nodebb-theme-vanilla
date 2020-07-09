@@ -6,6 +6,7 @@
 	{function.buildMetaTag}
 	{{{end}}}
 	<link rel="stylesheet" type="text/css" href="{relative_path}/assets/client<!-- IF bootswatchSkin -->-{bootswatchSkin}<!-- END -->.css?{config.cache-buster}" />
+	 <link rel="stylesheet" type="text/css" href="a11yoverrides.less" />
 	{{{each linkTags}}}
 	{function.buildLinkTag}
 	{{{end}}}
@@ -31,12 +32,13 @@
 	<!-- ENDIF useCustomHTML -->
 	<!-- IF useCustomCSS -->
 	<style type="text/css">{{customCSS}}</style>
+
 	<!-- END -->
 </head>
 
 <body class="{bodyClass} skin-<!-- IF bootswatchSkin -->{bootswatchSkin}<!-- ELSE -->noskin<!-- END -->">
 	<div class="navbar navbar-inverse navbar-fixed-top header" role="navigation" id="header-menu" component="navbar">
-		<div class="container">
+		<div role="navigation" class="container">
 			<!-- IMPORT partials/menu.tpl -->
 		</div>
 	</div>
