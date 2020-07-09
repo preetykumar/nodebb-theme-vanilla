@@ -7,13 +7,13 @@
 	</div>
 </div>
 
-<div class="row categories" itemscope itemtype="http://www.schema.org/ItemList">
+<div role="main" class="row categories" itemscope itemtype="http://www.schema.org/ItemList">
 	<div class="<!-- IF widgets.sidebar.length -->col-lg-9 col-sm-12<!-- ELSE -->col-lg-12<!-- ENDIF widgets.sidebar.length --> clearfix">
 		<div class="row">
 			{{{each categories}}}
 			<div component="categories/category" class="{categories.class}" data-cid="{categories.cid}" data-numRecentReplies="{categories.numRecentReplies}">
 				<meta itemprop="name" content="{categories.name}">
-				<h4 class="category-title">
+				<h2 class="category-title">
 					<!-- IF !categories.link -->
 					<span class="badge {categories.unread-class}">{categories.totalTopicCount} </span>
 					<!-- ENDIF !categories.link -->
@@ -25,7 +25,7 @@
 					<!-- ENDIF categories.link -->
 					{categories.name}
 					</a>
-				</h4>
+				</h2>
 
 				<!-- IF categories.link -->
 				<a style="color: {categories.color};" href="{categories.link}" itemprop="url" target="_blank">
