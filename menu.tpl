@@ -5,8 +5,8 @@
 					<span class="icon-bar"></span>
 				</button>
 				<div>
-					<a href="<!-- IF brand:logo:url -->{brand:logo:url}<!-- ELSE -->{relative_path}/<!-- ENDIF brand:logo:url -->" aria-label="logo">
-						<img alt="{brand:logo:alt}" class="{brand:logo:display} forum-logo" src="{brand:logo}" />
+					<a aria-label="logo" href="<!-- IF brand:logo:url -->{brand:logo:url}<!-- ELSE -->{relative_path}/<!-- ENDIF brand:logo:url -->">
+						<img alt="" class="{brand:logo:display} forum-logo" src="{brand:logo}" />
 					</a>
 					<!-- IF config.showSiteTitle -->
 					<a href="<!-- IF title:url -->{title:url}<!-- ELSE -->{relative_path}/<!-- ENDIF title:url -->">
@@ -26,7 +26,7 @@
 					{{{each navigation}}}
 					<!-- IF function.displayMenuItem, @index -->
 					<li class="{navigation.class}">
-						<a class="navigation-link" href="{navigation.route}" title="{navigation.title}" id="{navigation.id}"<!-- IF navigation.properties.targetBlank --> target="_blank"<!-- ENDIF navigation.properties.targetBlank -->>
+						<a aria-label="{navigation.title}" class="navigation-link" href="{navigation.route}" title="{navigation.title}" id="{navigation.id}"<!-- IF navigation.properties.targetBlank --> target="_blank"<!-- ENDIF navigation.properties.targetBlank -->>
 							<!-- IF navigation.iconClass -->
 							<i class="fa fa-fw {navigation.iconClass}" data-content="{navigation.content}"></i>
 							<!-- ENDIF navigation.iconClass -->
@@ -43,7 +43,7 @@
 				<!-- IF config.loggedIn -->
 				<ul id="logged-in-menu" class="nav navbar-nav navbar-right pull-right">
 					<li class="notifications dropdown text-center hidden-xs" component="notifications">
-						<a href="#" title="[[global:header.notifications]]" class="dropdown-toggle" data-toggle="dropdown" id="notif_dropdown" aria-label="notification dropdown">
+						<a aria-hidden="true" class="dropdown-toggle" href="#" title="[[global:header.notifications]]" class="dropdown-toggle" data-toggle="dropdown" id="notif_dropdown" aria-label="notification dropdown">
 							<i component="notifications/icon" class="notification-icon fa fa-fw fa-bell-o" data-content="0"></i>
 						</a>
 						<ul class="dropdown-menu" aria-labelledby="notif_dropdown">
@@ -76,7 +76,7 @@
 
 					<!-- IF !config.disableChat -->
 					<li class="chats dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#" title="[[global:header.chats]]" id="chat_dropdown" component="chat/dropdown" aria-label="chat dropdown">
+						<a aria-hidden="true" class="dropdown-toggle" data-toggle="dropdown" href="#" title="[[global:header.chats]]" id="chat_dropdown" component="chat/dropdown" aria-label="chat dropdown">
 							<i component="chat/icon" class="fa fa-comment-o fa-fw"></i> <span class="visible-xs-inline">[[global:header.chats]]</span>
 						</a>
 						<ul class="dropdown-menu" aria-labelledby="chat_dropdown">
@@ -94,7 +94,7 @@
 					<!-- ENDIF !config.disableChat -->
 
 					<li id="user_label" class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="user_dropdown" title="[[global:header.profile]]">{buildAvatar(user, "sm", true)}</a>
+						<a aria-label="dropdown" class="dropdown-toggle" data-toggle="dropdown" href="#" id="user_dropdown" title="[[global:header.profile]]">{buildAvatar(user, "sm", true)}</a>
 						<ul component="header/usercontrol" id="user-control-list" class="dropdown-menu" aria-labelledby="user dropdown">
 							<li>
 								<a component="header/profilelink" href="{relative_path}/user/{user.userslug}" aria-label="{user.username]">
@@ -201,7 +201,7 @@
 						<i class="fa fa-angle-double-up pointer fa-fw pagetop"></i>
 						<i class="fa fa-angle-up pointer fa-fw pageup"></i>
 
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<a aria-label="dropdown" href="#" class="dropdown-toggle" data-toggle="dropdown">
 							<span class="pagination-text"></span>
 						</a>
 
@@ -213,7 +213,7 @@
 						</div>
 
 						<ul class="dropdown-menu" role="menu">
-  							<input type="text" class="form-control" id="indexInput" placeholder="[[global:pagination.enter_index]]">
+  							<input aria-label="[[global:pagination.enter_index]]" type="text" class="form-control" id="indexInput" placeholder="[[global:pagination.enter_index]]">
   						</ul>
 					</li>
 				</ul>
